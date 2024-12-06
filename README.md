@@ -209,8 +209,116 @@ You can customize the following aspects of the application:
 ---
 
 ## Testing
-You can test the webhook endpoint using a tool like Postman or cURL:
-Using Postman:
+You can test the webhook endpoint using a CPAWS Sandbox:
+
+Testing on VSCODE:
+Webhook can be only sent to publicly accessible url endpoint, so if we want to run in vscode, we have to do Tunneling using NGROK
+
+1) SET UP NGROK
+   
+A) REGISTRATION
+1. Visit the Ngrok Website
+
+    Go to the Ngrok website. https://ngrok.com/
+    Click the "Sign Up" button at the top right corner of the homepage.
+
+2. Create an Account
+
+    Choose how you'd like to register:
+        With an Email Address:
+            Enter your name, email address, and password.
+            Click Sign Up.
+        With a GitHub or Google Account:
+            Click the respective button (GitHub or Google).
+            Authorize Ngrok to access your account.
+    Check your email inbox (if you signed up via email) for a verification link and click it to verify your account.
+
+3. Log In
+
+    Once your account is created, log in to the Ngrok Dashboard using your credentials.
+
+4. Get Your Authtoken
+
+    After logging in, go to the "Get Started" section on the dashboard.
+    Copy your Authtoken, which will look something like:
+    2A9g54YZABz7KnXXXOg85h32WzP_3MdXXXX
+
+After creating account you have to follow following steps:
+
+5. Download and Install Ngrok
+  -  Go to the Ngrok download page.
+  - Download the version for your operating system.
+  - Install it:
+
+    - macOS/Linux: Unzip the file and move the ngrok binary to a directory in your PATH (e.g., /usr/local/bin).
+    -  Windows: Unzip the file and place it in a directory. Optionally, add the directory to your PATH.
+
+6. Authenticate Ngrok
+
+  -  Open your terminal.
+  -  Authenticate with your Ngrok account using the authtoken provided in your dashboard:
+    ``` bash
+    ngrok config add-authtoken <your-authtoken>
+    ```
+    Replace <your-authtoken> with the token from your Ngrok dashboard.
+7.  Start Your Local Server
+
+Ensure your local application is running on port 3004. For example:
+```bash
+node app.js
+```
+
+8.  Expose Localhost with Ngrok
+
+Run the following command to expose your server:
+
+```bash
+ngrok http 3004
+
+```
+
+9. Use the Public URL
+
+Ngrok will display output like this:
+
+```bash
+Forwarding                    https://3e7d-206-123-191-9.ngrok-free.app -> http://localhost:3004  
+```
+
+With this setup whenever xola send webhook to this ngrok url, it will forward it to your local host at port 3004
+
+https one is the public url on which we have to subscribe xola webhook
+
+
+2) Subscribe to webhook
+   Access subscribe page in xola website: https://developers.xola.com/reference/subscribe
+
+   Fill up the blank spaces in body params, metadata and header
+
+Step 1: 
+In eventName you put in kind of webhook you want
+- Order.create
+- Order.update
+- Order.cancel
+
+Step 2:
+In url: put in the endpoint url from above + /webhook ( url/webhook)
+For example: if hosted website give url https://3e7d-206-123-191-9.ngrok-free.app
+Put https://3e7d-206-123-191-9.ngrok-free.app/webhook in url
+
+Step 3:
+Apiversion: 2020-10-14
+
+Step 4: METADATA:
+User id: you put in the seller id
+
+Step 5: API- key of app 
+In top right header, you put in the api key
+
+Once you have all this, click on try it, it will give you response status of 201 and it will subscribe to webhook.
+
+Now 
+
 
 - Set the URL to http://localhost:8000/webhook.
 - Select the POST method.
