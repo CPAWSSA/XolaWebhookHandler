@@ -30,13 +30,13 @@ This application is designed to process incoming webhook data from Xola, a platf
 Clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/GoldenEye10/WebhookTest.git
+git clone https://github.com/GoldenEye10/XolaWebhookHandler.git
 ```
 
 #### Step 2: Navigate to the Project Folder
 
 Once you’ve cloned the repository, change to the project directory:
-cd WebhookTest
+cd XolaWebhookHandler
 
 #### Step 3: Install Dependencies
 
@@ -202,10 +202,6 @@ The webhook endpoint provides clear responses to indicate the processing status:
 ---
 ## Customization Options
 You can customize the following aspects of the application:
-
-- Specified Values:
-
-    Modify the specifiedValues array to detect professional learning events based on your specific requirements.
 
 - Logging and Debugging:
 
