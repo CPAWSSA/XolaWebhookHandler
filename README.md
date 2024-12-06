@@ -211,10 +211,14 @@ You can customize the following aspects of the application:
 ## Testing
 You can test the webhook endpoint using a CPAWS Sandbox:
 
+**NOTE**
+The instance of this code should be already hosted on digital ocean, so if testing on any other server and interacting with CPAWS database, you will need to stop the cloud instance from running:
+
+
 Testing on VSCODE:
 Webhook can be only sent to publicly accessible url endpoint, so if we want to run in vscode, we have to do Tunneling using NGROK
 
-1) SET UP NGROK
+## Step 1: SET UP NGROK
    
 A) REGISTRATION
 1. Visit the Ngrok Website
@@ -294,10 +298,11 @@ With this setup whenever xola send webhook to this ngrok url, it will forward it
 https one is the public url on which we have to subscribe xola webhook
 
 
-2) Subscribe to webhook
-   Access subscribe page in xola website: https://developers.xola.com/reference/subscribe
+## Step 2: Subscribe to webhook
+   
+Access subscribe page in xola website: https://developers.xola.com/reference/subscribe
 
-   Fill up the blank spaces in body params, metadata and header
+Fill up the blank spaces in body params, metadata and header
 
 Step 1: 
 In eventName you put in kind of webhook you want
@@ -320,12 +325,3 @@ Step 5: API- key of app
 In top right header, you put in the api key
 
 Once you have all this, click on try it, it will give you response status of 201 and it will subscribe to webhook.
-
-Now 
-
-
-- Set the URL to http://localhost:8000/webhook.
-- Select the POST method.
-- Add a JSON payload in the request body.
-- Set the Content-Type header to application/json.
-- Send the request and verify the response.
