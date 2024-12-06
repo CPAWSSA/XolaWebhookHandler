@@ -257,10 +257,14 @@ After creating account you have to follow following steps:
 
   -  Open your terminal.
   -  Authenticate with your Ngrok account using the authtoken provided in your dashboard:
-    ``` bash
+    ```bash
     ngrok config add-authtoken <your-authtoken>
     ```
+    
+    
+
     Replace <your-authtoken> with the token from your Ngrok dashboard.
+
 7.  Start Your Local Server
 
 Ensure your local application is running on port 3004. For example:
