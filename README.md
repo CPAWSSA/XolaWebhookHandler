@@ -24,6 +24,7 @@ This application is designed to process incoming webhook data from Xola, a platf
 - Node.js (v14 or higher)
 - PostgreSQL
 - npm (Node Package Manager)
+- dotenv
 
 #### Step 1: Clone the Repository
 
@@ -45,6 +46,7 @@ Run the following command to install the required dependencies:
 npm install express
 npm install body-parser
 npm intall pg
+npm install dotenv
 ```
 
 #### Step 4: Set Up PostgreSQL Database Connection
