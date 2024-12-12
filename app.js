@@ -1457,17 +1457,17 @@ const ProfClasses = async (client, data, bookingId, programIds, themeIds, locati
 
 // Handle GET request to the root URL
 app.get('/', (req, res) => {
-    res.send('Welcome to the webhook geda!');
+    res.send('Welcome to Xola Webhook Handler!');
 });
 
 
 // Route to display the webhook data JSON
 app.get('/latest', (req, res) => {
-    res.send(`
-        <h1>Latest Webhook Data</h1>
-        <pre>${JSON.stringify(webhookJSON, null, 2)}</pre>
-        <p><a href="/">Back to Home</a></p>
-    `);
+  //  res.send(`
+     //   <h1>Latest Webhook Data</h1>
+    //    <pre>${JSON.stringify(webhookJSON, null, 2)}</pre>
+     //   <p><a href="/">Back to Home</a></p>
+  //  `);
 });
 
 // Error handling for unhandled routes
